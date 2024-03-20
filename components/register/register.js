@@ -1,17 +1,20 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, ImageBackground, Text, TextInput, View, Pressable } from 'react-native';
+import { StyleSheet, ImageBackground, Text, TextInput, View, Pressable, Image } from 'react-native';
 
 import styleCadastro from './styleRegister.js'
-import fundo from '../../assets/fundo.jpg'
+import fundo from '../../assets/LoginCadastro/fundo_resized_resized.jpg'
 
 export default function RegisterScreen({navigation}) {
   
   const goLogin = () =>{
     navigation.navigate('Login')
   }
+  const goHome = () =>{
+    navigation.navigate('Home')
+  }
   return (
     <View style={styleCadastro.container}>
-      <ImageBackground source={fundo} >
+      <ImageBackground source={fundo} style={styleCadastro.fundo} resizeMode="cover">
     <View>
        <TextInput
        inputMode='text'
@@ -35,11 +38,16 @@ export default function RegisterScreen({navigation}) {
        /> 
        <StatusBar style="auto" />
        </View>
-       {/* <View>
+       <View>
+        <Pressable onPress={goHome}>
+          
+        </Pressable>
+       </View>
+       <View>
           <Pressable onPress={goLogin}>
           <Image source={require('./../../assets/LoginCadastro/placa_log.png')} style={styleCadastro.cad}/>
           </Pressable>
-       </View> */}
+       </View>
        </ImageBackground>
     </View>
     

@@ -8,6 +8,10 @@ export default function LoginScreen({navigation}) {
   const goCadastro =() =>{
     navigation.navigate('Cadastro')
   }
+  const goHome =() =>{
+    navigation.navigate('Home')
+  }
+
   return (
     <View style={styleLogin.container}>
       <View>
@@ -27,8 +31,8 @@ export default function LoginScreen({navigation}) {
        />
 
       <View>
-        <Pressable style={styleLogin.img}>
-          <Image source={require('./../../assets/Logar2.jpg')} style={styleLogin.img}/>
+        <Pressable style={styleLogin.img} onPress={goHome}>
+          <Image source={require('./../../assets/LoginCadastro/Logar2.jpg')} style={styleLogin.img}/>
         </Pressable>
       </View>
       <Pressable onPress={goCadastro}>

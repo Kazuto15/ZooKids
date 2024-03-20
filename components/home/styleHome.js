@@ -6,24 +6,38 @@ const styleHome = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
     },
-    title:{
+    titleContainer:{
       position:'relative',
-      width: '100%',
-      height: '100%'
+      top:-15,
+      width: 410,
+      height: 50,
+      marginTop: 20,
+      marginBottom: 50,
+      borderBottomWidth:2,
+      borderBottomColor:'black',
+      shadowColor:'black',
+      shadowOpacity: 0.5,
+      shadowRadius: 2,
+      elevation: 2
     },
     titleText:{
       fontSize: 40,
-      position: 'absolute', 
-      top: 20, 
-      left: 20 
+      paddingLeft:10
     },
-    btn:{
+    habitat:{
+      backgroundColor:'black',
+      width: 300,
+      height:100,
+      borderRadius:15,
+      marginVertical:10,
       alignItems:'center',
-      backgroundColor: 'green',
-      padding:'10px',
-      margin: '10px'
+      justifyContent:'center'
     },
-  
+    nomeHabitat:{
+      color: '#fff',
+      fontSize: 20,
+    },
+ 
     })
     
   export default styleHome;
