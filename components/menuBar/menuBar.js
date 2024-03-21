@@ -13,11 +13,10 @@ export default function MenuBar({ navigation }) {
   }
 
   return (
-    <View style={styleMenuBar.container}>
       <View style={styleMenuBar.menuContainer}>
         <View style={styleMenuBar.menuBar}>
         <Pressable
-          style={styleMenuBar.button}
+          style={styleMenuBar.buttonHome}
           onPress={() => goHome()}>
           <Image source={require('./../../assets/menubar/zoo.png')} style={styleMenuBar.buttonImage} />
         </Pressable>
@@ -29,7 +28,7 @@ export default function MenuBar({ navigation }) {
         </Pressable> */}
         </View>
       </View>
-    </View>
+    
   );
 }
     

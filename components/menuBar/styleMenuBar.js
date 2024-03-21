@@ -2,18 +2,20 @@
 import { StyleSheet } from 'react-native';
 
 const styleMenuBar = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    alignItems: 'flex-end',
-    position: 'absolute',
-    bottom: 0,
-    right: 0,
-  },
   menuContainer:{
+    position:'relative',
     backgroundColor: 'green',
     flexDirection:'row',
+    alignItems:'center',
+    justifyContent: 'center',
     padding:10,
+    width:'100%'
+  },
+  menuBar:{
+    flexDirection: 'row',
+  },
+  buttonHome:{
+    padding: 5,
   },
   buttonImage: {
     width: 44,

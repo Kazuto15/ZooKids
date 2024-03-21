@@ -8,9 +8,9 @@ const styleHome = StyleSheet.create({
     },
     titleContainer:{
       position:'relative',
-      top:-15,
-      width: 410,
-      height: 50,
+      top:-20,
+      width: 450,
+      height: 100,
       marginTop: 20,
       marginBottom: 50,
       borderBottomWidth:2,
@@ -22,7 +22,8 @@ const styleHome = StyleSheet.create({
     },
     titleText:{
       fontSize: 40,
-      paddingLeft:10
+      paddingTop:10,
+      paddingLeft:20
     },
     habitat:{
       backgroundColor:'black',
@@ -33,9 +34,25 @@ const styleHome = StyleSheet.create({
       alignItems:'center',
       justifyContent:'center'
     },
+    habitatImage: {
+      width: 300,
+      height: 200,
+      borderRadius: 15,
+    },
+    habitatTxtCont: {
+      position: 'absolute',
+      bottom: 0,
+      right: 0,
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+      paddingHorizontal: 10,
+      paddingVertical: 5,
+      borderBottomRightRadius: 15,
+      borderTopLeftRadius: 15,
+    },
     nomeHabitat:{
       color: '#fff',
       fontSize: 20,
+      justifyContent:'flex-end'
     },
  
     })
