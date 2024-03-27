@@ -6,17 +6,24 @@ const styleLogin = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
     },
+    box:{
+      borderWidth:1,
+      borderColor:'black',
+      borderRadius:15,
+      padding:20
+    },
     title:{
-      fontSize:"30px",
+      fontSize:50,
       marginBottom:'50px'
+
     },
     textInput:{
-      height:'35px',
-      borderRadius:'5%',
+      height:35,
+      borderRadius:5,
       backgroundColor:'#b4f288',
-      margin:'10px',
-      paddingLeft:'10px',
-
+      margin:10,
+      padding:20,
+      marginTop:10,
     },
     btn:{
       alignItems:'center',
@@ -34,15 +41,23 @@ const styleLogin = StyleSheet.create({
     },
     img:{
       width: 300,
-      height:80,
+      height:50,
       borderColor:"red",
-      marginBottom:200,
+      alignItems:'center',
+      marginTop:40,
+      marginBottom: 40
     },
     cad:{
+      marginTop:100,
       width: 100,
       height:100,
       borderColor:"red",
-      marginLeft:100,
+
+    },
+    logar:{
+      flex:1,
+      fontSize:35,
+      color:'#fe3r4'
     }
   });
 
