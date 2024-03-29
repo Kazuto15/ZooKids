@@ -3,7 +3,7 @@ const styleSplash = StyleSheet.create({
 
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#7BC67B',
         alignItems: 'center',
         justifyContent: 'center',
     },

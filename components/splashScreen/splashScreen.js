@@ -8,7 +8,7 @@ const SplashScreen = () => {
     const navigation =useNavigation();
 
     useEffect (() =>{
-        const timeout = setTimeout(navigateToHome, 1000);
+        const timeout = setTimeout(navigateToHome, 7000);
         return () => clearTimeout(timeout);
     }, []);
     const navigateToHome = () => {
@@ -19,9 +19,9 @@ const SplashScreen = () => {
   return (
     <View style={styleSplash.container}>
       
-      <Image source={require('./../../assets/SplashScreen/placaZoo.png')} style={styleSplash.titulo}/>
+      <Image source={require('./../../assets/imgs/SplashScreen/placaZoo.png')} style={styleSplash.titulo}/>
       <View style={styleSplash.imgCarregamento}>
-          <Image source={'./../assets/SplashScreen/arara-unscreen.gif'} style={styleSplash.gif}/>
+          <Image source={'./../assets/imgs/SplashScreen/arara-unscreen.gif'} style={styleSplash.gif}/>
       </View>
     </View>
   );

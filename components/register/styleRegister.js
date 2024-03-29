@@ -8,14 +8,39 @@ const styleCadastro = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    height:'auto'
+    height:'auto',
+    width:'auto'
+  },
+  box:{
+    width:'70%',
+    height:'40%',
+    backgroundColor:'#A7CF5D',
+    borderWidth:2,
+    borderColor: 'black',
+    borderRadius:7,
+  },
+  title:{
+    fontSize:50,
+    color:'white',
+    fontFamily:'ComicNeue_700Bold',
+    marginBottom:20,
+    paddingTop:'7%',
+    paddingLeft:'7%'
   },
   textInput:{
     height:'35px',
-    borderRadius:'5%',
-    backgroundColor:'#b4f288',
+    borderRadius:5,
+    backgroundColor:'#fff',
     margin:'10px',
     paddingLeft:'10px',
+  },
+  boxBtn:{
+    alignItems:'center'
+  },
+  btnText:{
+    color:'white',
+    fontFamily:'ComicNeue_400Regular',
+    fontSize:25,
   },
   cad:{
     marginTop: 200,

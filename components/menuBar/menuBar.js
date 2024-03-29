@@ -18,7 +18,7 @@ export default function MenuBar({ navigation }) {
         <Pressable
           style={styleMenuBar.buttonHome}
           onPress={() => goHome()}>
-          <Image source={require('./../../assets/menubar/zoo.png')} style={styleMenuBar.buttonImage} />
+          <Image source={require('./../../assets/imgs/menubar/zoo.png')} style={styleMenuBar.buttonImage} />
         </Pressable>
 
         {/* <Pressable

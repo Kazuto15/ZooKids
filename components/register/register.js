@@ -1,12 +1,22 @@
 import React, { useState } from 'react';
 import { StatusBar, StyleSheet, ImageBackground, Text, TextInput, View, Pressable, Image } from 'react-native';
-import axios, {Axios} from 'axios';
+import axios, { Axios } from 'axios'
+import {useFonts, ComicNeue_700Bold, ComicNeue_400Regular} from '@expo-google-fonts/comic-neue'
 
-import styleCadastro from './styleRegister'; // Importação corrigida do arquivo de estilo
-import fundo from '../../assets/LoginCadastro/fundo_resized_resized.jpg';
+import styleCadastro from './styleRegister';
+import fundo from '../../assets/design/appDesign/2.png';
 
 export default function RegisterScreen({ navigation }) {
   
+  const [fonteLoaded] = useFonts({
+    ComicNeue_700Bold,
+    ComicNeue_400Regular
+  });
+  
+  if (!fonteLoaded){
+    return null;
+  }
+
   const goLogin = () => {
     navigation.navigate('Login');
   }
@@ -25,12 +35,12 @@ export default function RegisterScreen({ navigation }) {
     };
     const axiosConfig = {
       headers: {
-          /* 'Accept': 'application/json',
-          */'Content-Type': 'application/x-www-form-urlencoded'
+          //  'Accept': 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded'
       }
   };
   try {
-      const response = await axios.post('http://localhost/apiZoo/userInsert', dadosUsuario, axiosConfig );
+      const response = await axios.post('http://localhost/ApiZoo/userInsert', dadosUsuario, axiosConfig );
       console.log(response.data);
       navigation.navigate('Home');
   } catch (error) {
@@ -42,7 +52,11 @@ export default function RegisterScreen({ navigation }) {
   return (
     <View style={styleCadastro.container}>
       <ImageBackground source={fundo} style={styleCadastro.fundo} resizeMode="cover">
-        <View>
+        <View style={styleCadastro.box}>
+          <View>
+             <Text style={styleCadastro.title}>Cadastro</Text>
+          </View>
+
           <TextInput
             onChangeText={setNome}
             style={styleCadastro.textInput}
@@ -65,13 +79,13 @@ export default function RegisterScreen({ navigation }) {
             secureTextEntry={true} // Para ocultar a senha
           />
           <StatusBar style="auto" />
-        </View>
-        <View>
-          <Pressable onPress={cadastrar}>
-            <Text>Cadastrar</Text> {/* Corrigido o texto do botão de cadastrar */}
+        <View style={styleCadastro.boxBtn}>
+          <Pressable onPress={cadastrar()}>
+            <Text style={styleCadastro.btnText}>Cadastrar</Text> {/* Corrigido o texto do botão de cadastrar */}
           </Pressable>
         </View>
         <View>
+        </View>
           {/* <Pressable onPress={goLogin}>
             <Image source={require('./../../assets/LoginCadastro/placa_log.png')} style={styleCadastro.cad} />
           </Pressable> */}

@@ -1,16 +1,29 @@
 import { StatusBar } from "expo-status-bar";
-import { Pressable, Text, TextInput, View, Image } from "react-native";
+import { Pressable, Text, TextInput, View, Image, ImageBackground } from "react-native";
+import {useFonts, ComicNeue_700Bold, ComicNeue_400Regular} from '@expo-google-fonts/comic-neue'
 
 import styleLogin from "./styleLogin.js";
+import fundo from '../../assets/design/appDesign/3.png';
+
 
 export default function LoginScreen({ navigation }) {
+  
+  const [fonteLoaded] = useFonts({
+    ComicNeue_700Bold,
+    ComicNeue_400Regular
+  });
+  
+  if (!fonteLoaded){
+    return null;
+  }
+
   const goCadastro = () => {
     navigation.navigate("Cadastro");
   };
   const goHome = () => {
     navigation.navigate("Home");
   };
-  const login = async () => {};
+  // const login = async () => {};
   //   const login = async () => {
   //     try {
   //         const response = await axios.get(`http://localhost/apiZoo/userCredentials?email=${email}&senha=${senha}`);
@@ -31,11 +44,12 @@ export default function LoginScreen({ navigation }) {
   // }
   return (
     <View style={styleLogin.container}>
+      <ImageBackground source={fundo} style={styleLogin.fundo} resizeMode="cover">
+
+      <View style={styleLogin.box}>
       <View>
         <Text style={styleLogin.title}>Login</Text>
       </View>
-
-      <View style={styleLogin.box}>
         <TextInput
           inputMode="text"
           style={styleLogin.textInput}
@@ -47,18 +61,22 @@ export default function LoginScreen({ navigation }) {
           placeholder="Senha:"
         />
 
-        <View>
-          <Pressable style={styleLogin.img} onPress={login}>
-            <Text style={styleLogin.logar}>Logar</Text>
-          </Pressable>
+        <View style={styleLogin.boxEntrar}>
+          <Text style={styleLogin.entrar}>
+            Entrar
+          </Text>
         </View>
-      </View>
-      <Pressable onPress={goCadastro}>
+        <View style={styleLogin.cadBox}>
+        <Pressable onPress={goCadastro}>
         <Image
-          source={require("./../../assets/LoginCadastro/placa_cad.png")}
+          source={require("./../../assets/imgs/LoginCadastro/placa_cad.png")}
           style={styleLogin.cad}
         />
       </Pressable>
+        </View>
+      </View>
+      
+      </ImageBackground>
     </View>
   );
 }
