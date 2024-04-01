@@ -35,7 +35,9 @@ const styleCadastro = StyleSheet.create({
     paddingLeft:'10px',
   },
   boxBtn:{
-    alignItems:'center'
+    alignItems:'center',
+    marginTop:10,
+    marginBottom:10,
   },
   btnText:{
     color:'white',

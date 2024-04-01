@@ -1,24 +1,32 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions} from 'react-native';
+const { height, width } = Dimensions.get('window');
 const styleSplash = StyleSheet.create({
 
     container: {
         flex: 1,
         backgroundColor: '#7BC67B',
+    },
+    fundo:{
+        flex: 1,
+        position:'absolute',
+        alignItems:'center',
+        height:932,
+        width:'100%',
+        zIndex:999
+      },
+    titulo: {
+        width: width * 0.68, 
+        height: width * 0.68, 
+        position: 'absolute',
+        bottom: height * 0.47,
+    },
+    imgCarregamento: {
         alignItems: 'center',
-        justifyContent: 'center',
     },
-    titulo:{
-        width:300,
-        height:300,
-        marginBottom:100,
-    },
-    imgCarregamento:{
-        alignItems: 'center',
-    },
-    gif:{
-        marginTop:100,
-        width:100,
-        height:100
+    gif: {
+        marginTop: height * 0.7,
+        width: width * 0.23,
+        height: width * 0.23,
     }
 })
 

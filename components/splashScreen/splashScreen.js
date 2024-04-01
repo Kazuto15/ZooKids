@@ -1,29 +1,33 @@
 import { useNavigation } from '@react-navigation/native';
 import { useEffect } from 'react';
-import {Text, View, Image} from 'react-native';
+import {Text, View, Image, ImageBackground} from 'react-native';
+import { ScrollView } from 'react-native';
 
 import styleSplash from './splashStyle.js'
+import fundo from './../../assets/imgs/SplashScreen/backSplash.png'
+import arara from './../../assets/imgs/SplashScreen/arara-unscreen.gif'
 
 const SplashScreen = () => {
     const navigation =useNavigation();
 
     useEffect (() =>{
-        const timeout = setTimeout(navigateToHome, 7000);
+        const timeout = setTimeout(navigateToHome, 500);
         return () => clearTimeout(timeout);
     }, []);
     const navigateToHome = () => {
-        navigation.navigate('Login')     
-        // navigation.navigate('Home')
+        // navigation.navigate('Login')     
+        navigation.navigate('Home')
 
     }
   return (
-    <View style={styleSplash.container}>
-      
+    <ScrollView style={styleSplash.container} scrollEnabled={false}>
+      <ImageBackground source={fundo} style={styleSplash.fundo} resizeMode="cover"> 
       <Image source={require('./../../assets/imgs/SplashScreen/placaZoo.png')} style={styleSplash.titulo}/>
       <View style={styleSplash.imgCarregamento}>
-          <Image source={'./../assets/imgs/SplashScreen/arara-unscreen.gif'} style={styleSplash.gif}/>
+          <Image source={arara} style={styleSplash.gif}/>
       </View>
-    </View>
+      </ImageBackground>
+    </ScrollView>
   );
 };
 

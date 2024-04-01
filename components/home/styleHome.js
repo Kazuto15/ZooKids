@@ -1,25 +1,18 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions} from 'react-native';
+const { height, width } = Dimensions.get('window');
 const styleHome = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#fff',
+      backgroundColor: '#A97555',
       alignItems: 'center',
       justifyContent: 'center',
     },
-    titleContainer:{
+    titulo: {
+      width: width * 0.48, 
+      height: width * 0.28, 
       position:'relative',
-      top:-20,
-      width: 450,
-      height: 100,
-      marginTop: 20,
-      marginBottom: 50,
-      borderBottomWidth:2,
-      borderBottomColor:'black',
-      shadowColor:'black',
-      shadowOpacity: 0.5,
-      shadowRadius: 2,
-      elevation: 2
-    },
+      left:'20%'
+  },
     titleText:{
       fontSize: 40,
       paddingTop:10,
@@ -30,13 +23,19 @@ const styleHome = StyleSheet.create({
       width: 300,
       height:100,
       borderRadius:15,
-      marginVertical:10,
       alignItems:'center',
       justifyContent:'center'
     },
+    fundoHabitat:{
+      width:350,
+      paddingVertical:6,
+      alignItems:'center',
+      marginVertical:10,
+      borderRadius:10
+    },
     habitatImage: {
-      width: 300,
-      height: 200,
+      width:300,
+      height:100,
       borderRadius: 15,
     },
     habitatTxtCont: {
@@ -45,7 +44,6 @@ const styleHome = StyleSheet.create({
       right: 0,
       backgroundColor: 'rgba(0, 0, 0, 0.5)',
       paddingHorizontal: 10,
-      paddingVertical: 5,
       borderBottomRightRadius: 15,
       borderTopLeftRadius: 15,
     },
