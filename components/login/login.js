@@ -4,10 +4,13 @@ import {useFonts, ComicNeue_700Bold, ComicNeue_400Regular} from '@expo-google-fo
 
 import styleLogin from "./styleLogin.js";
 import fundo from '../../assets/design/appDesign/3.png';
-
+import { useState } from "react";
+import axios from 'axios';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function LoginScreen({ navigation }) {
-  
+  const [email,setEmail] = useState('');
+  const [senha, setSenha] = useState('');
   const [fonteLoaded] = useFonts({
     ComicNeue_700Bold,
     ComicNeue_400Regular
@@ -24,24 +27,26 @@ export default function LoginScreen({ navigation }) {
     navigation.navigate("Home");
   };
   // const login = async () => {};
-  //   const login = async () => {
-  //     try {
-  //         const response = await axios.get(`http://localhost/apiZoo/userCredentials?email=${email}&senha=${senha}`);
-  //         console.log(response.data);
-  //         const idUser = response.data['id'];
-  //         AsyncStorage.setItem('id', idUser)
-  //         .then(() => {
-  //             console.log('salvo com sucesso');
-  //         })
-  //         .catch(() => {
-  //             console.error("Erro no salvamento local", error);
-  //         })
-  //         navigation.navigate('Loading', { login: 'login' });
-  //     } catch (error) {
-  //         console.error('Erro ao tentar logar', error);
-  //         return false;
-  //     }
-  // }
+    const login = async () => {
+      try {
+          const response = await axios.get(`http://localhost/apiZoo/userCredentials?email=${email}&senha=${senha}`);
+          console.log(response.data);
+          const idUser = response.data['id'];
+          AsyncStorage.setItem('id', idUser)
+          AsyncStorage.setItem('emailUser', email)
+          AsyncStorage.setItem('senhaUser', senha)
+          .then(() => {
+              console.log('salvo com sucesso');
+          })
+          .catch(() => {
+              console.error("Erro no salvamento local", error);
+          })
+          navigation.navigate('Home');
+      } catch (error) {
+          console.error('Erro ao tentar logar', error);
+          return false;
+      }
+  }
   return (
     <View style={styleLogin.container}>
       <ImageBackground source={fundo} style={styleLogin.fundo} resizeMode="cover">
@@ -54,17 +59,22 @@ export default function LoginScreen({ navigation }) {
           inputMode="text"
           style={styleLogin.textInput}
           placeholder="Email:"
+          onChangeText={setEmail}
         />
         <TextInput
           inputMode="password"
           style={styleLogin.textInput}
           placeholder="Senha:"
+          onChangeText={setSenha}
+
         />
 
         <View style={styleLogin.boxEntrar}>
+          <Pressable onPress={login}> 
           <Text style={styleLogin.entrar}>
             Entrar
           </Text>
+          </Pressable>
         </View>
         <View style={styleLogin.cadBox}>
         <Pressable onPress={goCadastro}>

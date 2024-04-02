@@ -11,7 +11,8 @@ const styleHome = StyleSheet.create({
       width: width * 0.48, 
       height: width * 0.28, 
       position:'relative',
-      left:'20%'
+      left:'20%',
+      top:'-2% '
   },
     titleText:{
       fontSize: 40,

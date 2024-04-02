@@ -29,7 +29,7 @@ export default function RegisterScreen({ navigation }) {
   const cadastrar = async () => {
     const dadosUsuario = {
       nome: nome,
-      cpf: cpf,
+      // cpf: cpf,
       email: email,
       senha: senha,
     };
@@ -42,7 +42,7 @@ export default function RegisterScreen({ navigation }) {
     try {
       const response = await axios.post('http://localhost/apiZoo/userInsert', dadosUsuario, axiosConfig);
       console.log(response.data);
-      // navigation.navigate('Home');
+      navigation.navigate('Home');
     } catch (error) {
       console.error('Erro ao criar jogador1', error);
       return false;
@@ -60,7 +60,7 @@ export default function RegisterScreen({ navigation }) {
             placeholder='Nome:'
           />
           <TextInput
-            onChangeText={setCpf}
+            // onChangeText={setCpf}
             style={styleCadastro.textInput}
             placeholder='CPF:'
           />
