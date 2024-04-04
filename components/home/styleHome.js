@@ -1,59 +1,120 @@
-import { StyleSheet, Dimensions} from 'react-native';
-const { height, width } = Dimensions.get('window');
+import { StyleSheet, Dimensions } from "react-native";
+const { height, width } = Dimensions.get("window");
 const styleHome = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#A97555',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    titulo: {
-      width: width * 0.48, 
-      height: width * 0.28, 
-      position:'relative',
-      left:'20%',
-      top:'-2% '
+  container: {
+    flex: 1,
+    backgroundColor: "#A97555",
   },
-    titleText:{
-      fontSize: 40,
-      paddingTop:10,
-      paddingLeft:20
-    },
-    habitat:{
-      backgroundColor:'black',
-      width: 300,
-      height:100,
-      borderRadius:15,
-      alignItems:'center',
-      justifyContent:'center'
-    },
-    fundoHabitat:{
-      width:350,
-      paddingVertical:6,
-      alignItems:'center',
-      marginVertical:10,
-      borderRadius:10
-    },
-    habitatImage: {
-      width:300,
-      height:100,
-      borderRadius: 15,
-    },
-    habitatTxtCont: {
-      position: 'absolute',
-      bottom: 0,
-      right: 0,
-      backgroundColor: 'rgba(0, 0, 0, 0.5)',
-      paddingHorizontal: 10,
-      borderBottomRightRadius: 15,
-      borderTopLeftRadius: 15,
-    },
-    nomeHabitat:{
-      color: '#fff',
-      fontSize: 20,
-      justifyContent:'flex-end'
-    },
- 
-    })
-    
-  export default styleHome;
+  header: {
+    width: width,
+    height: height * 0.06,
+    justifyContent: "flex-start",
+    alignItems: "center",
+    backgroundColor: "#fff",
+    marginBottom: "20%",
+  },
+  headerUser: {
+    position: "relative",
+    top: "25%",
+    right: width * 0.4,
+  },
+  headerConfig: {
+    position: "relative",
+    bottom: "50%",
+    left: width * 0.4,
+  },
+  titulo: {
+    width: width * 0.48,
+    height: width * 0.28,
+    position: "relative",
+    right: "20%",
+    top: "-2% ",
+  },
+  titleText: {
+    fontSize: 40,
+    paddingTop: 10,
+    paddingLeft: 20,
+  },
+  habitat: {
+    backgroundColor: "black",
+    width: 300,
+    height: 100,
+    borderRadius: 15,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  habitatsContainer: {
+    alignItems: "center",
+  },
+  fundoHabitat: {
+    width: 350,
+    paddingVertical: 6,
+    alignItems: "center",
+    marginVertical: 10,
+    borderRadius: 10,
+  },
+  habitatImage: {
+    width: 300,
+    height: 100,
+    borderRadius: 15,
+  },
+  habitatTxtCont: {
+    position: "absolute",
+    bottom: 0,
+    right: 0,
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    paddingHorizontal: 10,
+    borderBottomRightRadius: 15,
+    borderTopLeftRadius: 15,
+  },
+  nomeHabitat: {
+    color: "#fff",
+    fontSize: 20,
+    justifyContent: "flex-end",
+  },
+  modalContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#CCCCCC",
+    width: width * 0.6,
+    height:  height * 0.3,
+    marginLeft: width * 0.20,
+    marginR: width * 0.25,
+    marginTop: height * 0.2,
+    marginBottom: height * 0.35,
+  },
+  modalImageCont: {
+    position: "absolute",
+    top: "-1%",
+    width: 480,
+    paddingVertical: 6,
+    marginLeft: 50,
+    marginVertical: 10,
+    borderRadius: 10,
+  },
+  modalImage: {
+    width: "80%",
+    height: 100,
+    borderRadius: 15,
+    position: "relative",
+    left: "3%",
+    right: "3%",
+  },
+  modalText: {
+    fontSize: 20,
+    fontWeight: "bold",
+    marginBottom: 20,
+  },
+  closeButton: {
+    marginTop: 50,
+    fontSize: 18,
+    color: "white",
+    backgroundColor: "blue",
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 10,
+  },
+});
+
+export default styleHome;

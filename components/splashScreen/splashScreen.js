@@ -11,12 +11,12 @@ const SplashScreen = () => {
     const navigation =useNavigation();
 
     useEffect (() =>{
-        const timeout = setTimeout(navigateToHome, 500);
+        const timeout = setTimeout(navigateToHome, 7000);
         return () => clearTimeout(timeout);
     }, []);
     const navigateToHome = () => {
-        // navigation.navigate('Login')     
-        navigation.navigate('Home')
+        navigation.navigate('Login')     
+        // navigation.navigate('Home')
 
     }
   return (
