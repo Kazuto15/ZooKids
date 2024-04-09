@@ -1,33 +1,52 @@
 import { useNavigation } from '@react-navigation/native';
 import { useEffect } from 'react';
+<<<<<<< Updated upstream
+import {Text, View, Image} from 'react-native';
+=======
 import {Text, View, Image, ImageBackground} from 'react-native';
 import { ScrollView } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+>>>>>>> Stashed changes
 
 import styleSplash from './splashStyle.js'
-import fundo from './../../assets/imgs/SplashScreen/backSplash.png'
-import arara from './../../assets/imgs/SplashScreen/arara-unscreen.gif'
 
 const SplashScreen = () => {
-    const navigation =useNavigation();
-
+    const navigation =useNavigation(); 
     useEffect (() =>{
-        const timeout = setTimeout(navigateToHome, 7000);
+<<<<<<< Updated upstream
+        const timeout = setTimeout(navigateToHome, 1000);
         return () => clearTimeout(timeout);
+=======
+      checarLogin();
+>>>>>>> Stashed changes
     }, []);
-    const navigateToHome = () => {
-        navigation.navigate('Login')     
-        // navigation.navigate('Home')
+    const checarLogin =async() => {
+      try{
+        const emailSalvo = await AsyncStorage.getItem('emailUser');
+        const SenhaSalva = await AsyncStorage.getItem('senhaUser')
+      
+        if (SenhaSalva && emailSalvo){
+          
+          setTimeout(() => navigation.replace('Home'),3650)
+        }else{
+          setTimeout(() => navigation.replace('Login'),3650)        
+        }
+      } catch(error){
+        console.error('Erro ao verificar o seu Login', error);
+        setTimeout(() => navigation.replace('Login'),3650)        
+      }
+    };
 
-    }
+
   return (
-    <ScrollView style={styleSplash.container} scrollEnabled={false}>
-      <ImageBackground source={fundo} style={styleSplash.fundo} resizeMode="cover"> 
-      <Image source={require('./../../assets/imgs/SplashScreen/placaZoo.png')} style={styleSplash.titulo}/>
+    <View style={styleSplash.container}>
+      
+      <Image source={require('./../../assets/SplashScreen/placaZoo.png')} style={styleSplash.titulo}/>
       <View style={styleSplash.imgCarregamento}>
-          <Image source={arara} style={styleSplash.gif}/>
+          <Image source={'./../assets/SplashScreen/arara-unscreen.gif'} style={styleSplash.gif}/>
       </View>
-      </ImageBackground>
-    </ScrollView>
+    </View>
   );
 };
 
