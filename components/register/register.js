@@ -8,7 +8,6 @@ import fundo from '../../assets/design/appDesign/2.png';
 
 export default function RegisterScreen({ navigation }) {
   const [nome, setNome] = useState('');
-  const [cpf, setCpf] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
 
@@ -29,7 +28,6 @@ export default function RegisterScreen({ navigation }) {
   const cadastrar = async () => {
     const dadosUsuario = {
       nome: nome,
-      // cpf: cpf,
       email: email,
       senha: senha,
     };
@@ -42,7 +40,7 @@ export default function RegisterScreen({ navigation }) {
     try {
       const response = await axios.post('http://localhost/apiZoo/userInsert', dadosUsuario, axiosConfig);
       console.log(response.data);
-      navigation.navigate('Home');
+      navigation.navigate('Login');
     } catch (error) {
       console.error('Erro ao criar jogador1', error);
       return false;
@@ -59,11 +57,7 @@ export default function RegisterScreen({ navigation }) {
             style={styleCadastro.textInput}
             placeholder='Nome:'
           />
-          <TextInput
-            // onChangeText={setCpf}
-            style={styleCadastro.textInput}
-            placeholder='CPF:'
-          />
+          
           <TextInput
             onChangeText={setEmail}
             style={styleCadastro.textInput}
@@ -80,6 +74,9 @@ export default function RegisterScreen({ navigation }) {
               <Text style={styleCadastro.btnText}>Cadastrar</Text>
             </Pressable>
           </View>
+          <Pressable onPress={goLogin}>
+              <Text style={styleCadastro.btnText}>login?</Text>
+            </Pressable>
         </View>
         <StatusBar style="auto" />
   </ImageBackground>

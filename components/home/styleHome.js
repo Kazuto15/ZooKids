@@ -50,7 +50,7 @@ const styleHome = StyleSheet.create({
     width: 350,
     paddingVertical: 6,
     alignItems: "center",
-    marginVertical: 10,
+    marginVertical: 15,
     borderRadius: 10,
   },
   habitatImage: {

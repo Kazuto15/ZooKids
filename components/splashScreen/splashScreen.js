@@ -1,26 +1,18 @@
 import { useNavigation } from '@react-navigation/native';
 import { useEffect } from 'react';
-<<<<<<< Updated upstream
-import {Text, View, Image} from 'react-native';
-=======
 import {Text, View, Image, ImageBackground} from 'react-native';
 import { ScrollView } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
->>>>>>> Stashed changes
 
 import styleSplash from './splashStyle.js'
-
+import fundo from './../../assets/design/appDesign/1.png'
 const SplashScreen = () => {
     const navigation =useNavigation(); 
     useEffect (() =>{
-<<<<<<< Updated upstream
-        const timeout = setTimeout(navigateToHome, 1000);
-        return () => clearTimeout(timeout);
-=======
       checarLogin();
->>>>>>> Stashed changes
     }, []);
+    
     const checarLogin =async() => {
       try{
         const emailSalvo = await AsyncStorage.getItem('emailUser');
@@ -41,11 +33,12 @@ const SplashScreen = () => {
 
   return (
     <View style={styleSplash.container}>
-      
-      <Image source={require('./../../assets/SplashScreen/placaZoo.png')} style={styleSplash.titulo}/>
-      <View style={styleSplash.imgCarregamento}>
-          <Image source={'./../assets/SplashScreen/arara-unscreen.gif'} style={styleSplash.gif}/>
-      </View>
+      <ImageBackground source={fundo} resizeMode='contain'>
+        <Image source={require('./../../assets/imgs/SplashScreen/placaZoo.png')} style={styleSplash.titulo}/>
+        <View style={styleSplash.imgCarregamento}>
+            <Image source={'./../assets/imgs/SplashScreen/arara-unscreen.gif'} style={styleSplash.gif}/>
+        </View>
+      </ImageBackground>
     </View>
   );
 };

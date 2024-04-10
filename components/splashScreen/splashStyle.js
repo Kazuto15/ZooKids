@@ -10,21 +10,24 @@ const styleSplash = StyleSheet.create({
         flex: 1,
         position:'absolute',
         alignItems:'center',
-        height:932,
+        justifyContent:`center`,
+        height:'auto',
         width:'100%',
         zIndex:999
       },
     titulo: {
         width: width * 0.68, 
         height: width * 0.68, 
-        position: 'absolute',
-        bottom: height * 0.47,
+        position: 'relative',
+        justifyContent:`center`,
+        left: width * 0.15
     },
     imgCarregamento: {
         alignItems: 'center',
     },
     gif: {
-        marginTop: height * 0.7,
+        position:`relative`,
+        top: height *0.35,
         width: width * 0.23,
         height: width * 0.23,
     }

@@ -20,6 +20,7 @@ const styleProfile = StyleSheet.create({
     },
     inputContainer:{
         alignItems:`center`,
+
     },
     textInput:{
         height: height * 0.04,
@@ -34,8 +35,8 @@ const styleProfile = StyleSheet.create({
         alignItems:'center',
         marginLeft: width *0.10,
         marginRight: width *0.10,
-        marginTop: height *.05,
-        marginBottom:10,
+        marginTop: height *.03  ,
+        marginBottom: height*.35,
         backgroundColor:`#3cabb0`,
         borderRadius: 5
       },

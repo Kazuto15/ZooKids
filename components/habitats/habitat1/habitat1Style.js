@@ -31,7 +31,7 @@ const styleHabitat = StyleSheet.create({
     width: 350,
     paddingVertical: 8,
     alignItems: "center",
-    marginVertical: 10,
+    marginVertical: 15,
     borderRadius: 10,
   },
   habitatImage: {
@@ -64,7 +64,6 @@ const styleHabitat = StyleSheet.create({
     top: '-1%',
     width: 480,
     paddingVertical: 6,
-    marginLeft: 50,
     marginVertical: 10,
     borderRadius: 10,
   },
@@ -73,8 +72,8 @@ const styleHabitat = StyleSheet.create({
     height: 100,
     borderRadius: 15,
     position:'relative',
-    left:'3%',
-    right:'3%'
+    left: width *.11,
+
   },
   modalText: {
     fontSize: 20,
@@ -82,7 +81,7 @@ const styleHabitat = StyleSheet.create({
     marginBottom: 20,
   },
   closeButton: {
-    marginTop: 50,
+    marginTop: height* .85,
     fontSize: 18,
     color: "white",
     backgroundColor: "blue",
@@ -90,6 +89,20 @@ const styleHabitat = StyleSheet.create({
     paddingHorizontal: 20,
     borderRadius: 10,
   },
+  modalDetails:{
+    marginLeft:40,
+    marginRight:40
+  },
+  detailText:{
+    color:`#2c369a`,
+    fontSize: width *0.035,
+  },
+  detailTitle:{
+    color:`#021548`,
+    fontSize: width *.04,
+    fontWeight:`700`,
+    marginTop: height * .02
+  }
 });
 
 export default styleHabitat;

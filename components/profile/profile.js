@@ -1,34 +1,73 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import { Text, View, Image, Pressable, TextInput } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import axios, { Axios } from 'axios'
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 import styleProfile from "./profileStyle.js";
 import profileImage from "./../../assets/imgs/habitats/placaZoo.png";
 
 export default function ProfileScreen({ navigation }) {
     const [nome, setNome] = useState('');
-    const [cpf, setCpf] = useState('');
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
+    const [data, setData] = useState('');
     
-    const update = async () => {
-        const dadosUsuario = {
-            nome: nome,
-            email: email,
-            senha: senha,
+    useEffect(() => {
+        const recuperarDados = async () => {
+            try {
+                const idUser = await AsyncStorage.getItem('id')
+
+                if (idUser !== null){ 
+                    const response = await axios.get(`http://localhost/apiZoo/userShow?id=${idUser}`);
+                    console.log(response.data);
+                    setData(response.data)
+
+                    setNome(response.data.nome || '');
+                    setEmail(response.data.email || '');
+                    setSenha(response.data.senha || '');
+                }else{
+                console.log(`Nada por aqui`)
+             }
+            } catch (error) {
+                console.error('Erro ao carregar os dados do usuário', error);
+            }
         };
-        console.log('Dados do usuário:', { nome, email, senha });
+
+        recuperarDados();
+    }, []);
+
+    const update = async () => {
+        const dadosUser = {
+            'id': data.id,
+            'nome': nome,
+            'email':email,
+            'senha':senha,
+        }
+        console.log(dadosUser);
         const axiosConfig = {
           headers: {
-            //  'Accept': 'application/json',
             'Content-Type': 'application/x-www-form-urlencoded'
           }
         };
+
+
         try {
-          const response = await axios.post('http://localhost/apiZoo/userUpdate', dadosUsuario, axiosConfig);
-          console.log(response.data);
-          navigation.navigate('Home');
+          const response = await axios.post('http://localhost/apiZoo/userUpdate', dadosUser, axiosConfig);
+          const idUser = response.data['id']
+          const emailUser = response.data['emailUser']
+          const senhaUser = response.data['senhaUser']
+          AsyncStorage.setItem('id',idUser)
+          AsyncStorage.setItem('emailUser',emailUser)
+          AsyncStorage.setItem('senhaUser',senhaUser)
+          .then(() =>{
+            console.log("Dados armazenados com sucesso");
+          })
+          .catch(error => {
+            console.log('Erro ao armazenar os dados',error);
+         })
+        
         } catch (error) {
           console.error('Erro ao atualizar jogador1', error);
           return false;
@@ -51,18 +90,21 @@ export default function ProfileScreen({ navigation }) {
 
             <View style={styleProfile.inputContainer}>
                 <TextInput
-                      onChangeText={setNome}
+                    onChangeText={setNome}
+                    value={nome}
                     style={styleProfile.textInput}
                     placeholder="Nome:"
                 />
                 
                 <TextInput
-                      onChangeText={setEmail}
+                    onChangeText={setEmail}
+                    value={email}
                     style={styleProfile.textInput}
                     placeholder="Email:"
                 />
                 <TextInput
-                      onChangeText={setSenha}
+                    onChangeText={setSenha}
+                    value={senha}
                     style={styleProfile.textInput}
                     placeholder="Senha:"
                     secureTextEntry={true}
